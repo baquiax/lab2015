@@ -1,7 +1,6 @@
 <?php
 	include("../bd/conexioni.php");
 ?>
-<!DOCTYPE html>
 <html>
 <head>
 	<title>Nuevo Pais</title>
