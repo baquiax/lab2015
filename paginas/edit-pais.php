@@ -3,14 +3,15 @@
 	$h2 = $title;
 	include("../includes/header.php");
 	include("../bd/conexioni.php");
+	$id_pais = isset($_POST["pais"]) ? $_POST["pais"] : (isset($_GET["pais"]) ? $_GET["pais"] : "");
 ?>
 	<p class="text-left">
 		<button class="btn btn-info" onclick="history.back()"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>&nbsp;&nbsp;Ir atras</button>
 	</p>
 	<?php
-		if (strlen($_POST["pais"]) > 0 && is_numeric($_POST["pais"])) {
+		if (strlen($id_pais) > 0 && is_numeric($id_pais)) {
 			$sql = "select nombre from pais";
-			$sql = $sql . " where pais = " . $_POST["pais"];
+			$sql = $sql . " where pais = " . $id_pais;
 			$result = mysql_query($sql);
 		
 			while ($row = mysql_fetch_array($result)) {
@@ -32,7 +33,7 @@
 			<div class="form-group">
 	    		<label for="pais" class="col-sm-2 control-label">(#)ID del pais</label>
 	    		<div class="col-sm-10">
-	      			<input type="number" class="form-control" id="pais" placeholder="1, 2, 3..." name="pais" readonly="true" value="<?php echo $_POST['pais'];?>">
+	      			<input type="number" class="form-control" id="pais" placeholder="1, 2, 3..." name="pais" readonly="true" value="<?php echo $id_pais;?>">
 	    		</div>
 	  		</div>
 			

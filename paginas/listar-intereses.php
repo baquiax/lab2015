@@ -30,6 +30,16 @@
 			<tr>
 				<td><?php echo $row["interes"];?></td>
 				<td><?php echo $row["descripcion"]?></td>
+				<td>
+					<a href="delete-interes.php?interes=<?php echo $row["interes"];?>" class="btn btn-danger">
+						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+					</a>
+				</td>
+				<td>
+					<a href="edit-interes.php?interes=<?php echo $row["interes"];?>" class="btn btn-warning">
+						<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+					</a>
+				</td>				
 			</tr>
 		<?php
 			}

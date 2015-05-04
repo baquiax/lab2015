@@ -3,14 +3,15 @@
 	$h2 = $title;
 	include("../includes/header.php");
 	include("../bd/conexioni.php");
+	$id_interes = isset($_POST["interes"]) ? $_POST["interes"] : (isset($_GET["interes"]) ? $_GET["interes"] : "");
 ?>
 	<p class="text-left">
 		<button class="btn btn-info" onclick="history.back()"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>&nbsp;&nbsp;Ir atras</button>
 	</p>
 	<?php
-		if (strlen($_POST["interes"]) > 0 && is_numeric($_POST["interes"])) {
+		if (strlen($id_interes) > 0 && is_numeric($id_interes)) {
 			$sql = "select descripcion from interes";
-			$sql = $sql . " where interes = " . $_POST["interes"];
+			$sql = $sql . " where interes = " . $id_interes;
 			$result = mysql_query($sql);
 		
 			while ($row = mysql_fetch_array($result)) {
@@ -32,7 +33,7 @@
 			<div class="form-group">
 	    		<label for="interes" class="col-sm-2 control-label">(#)ID del interes</label>
 	    		<div class="col-sm-10">
-	      			<input type="number" class="form-control" id="interes" placeholder="1, 2, 3..." name="interes" readonly="true" value="<?php echo $_POST['interes'];?>">
+	      			<input type="number" class="form-control" id="interes" placeholder="1, 2, 3..." name="interes" readonly="true" value="<?php echo $id_interes;?>">
 	    		</div>
 	  		</div>
 			
