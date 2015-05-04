@@ -1,5 +1,5 @@
 <?php
-	$title = "Creacion de pais";
+	$title = "Borrar interes";
 	$h2 = $title;
 	include("../includes/header.php");
 	include("../bd/conexioni.php");
@@ -8,19 +8,19 @@
 		<button class="btn btn-info" onclick="history.back()"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>&nbsp;&nbsp;Ir atras</button>
 	</p>
 	<?php
-		if (strlen($_POST["nombre"]) > 0) {
-			$sql = "insert into pais (nombre) values('" . $_POST["nombre"] . "');";
-			$result - mysql_query($sql);
+		if (strlen($_POST["interes"]) > 0 && is_numeric($_POST["interes"])) {
+			$sql = "delete from interes where interes = " . $_POST["interes"];
+			$result = mysql_query($sql);
 	?>
 		<div class="alert alert-success" role="alert">
-    		<strong>Listo!</strong> Se ha almacenado el registro de forma correcta.
+    		<strong>Listo!</strong> Se ha <strong>eliminado</strong> el registro de forma correcta.
     	</div>
 	<?php
 		} else {
 
 	?>
 		<div class="alert alert-danger" role="alert">
-      		<strong>Duh!</strong> Usted debe especificar un valor aceptable.
+      		<strong>Duh!</strong> Debes indicar un valor <strong>numerico</strong> valido.
     	</div>
 	<?php			
 		}

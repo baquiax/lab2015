@@ -1,13 +1,13 @@
 <?php
-	$title = "Agregar pais";
+	$title = "Agregar interes";
 	$h2 = $title;
 	include("../includes/header.php");
 ?>	
-	<form class="form-horizontal" name="datos" method="POST" action="insert-pais.php">
+	<form class="form-horizontal" name="datos" method="POST" action="insert-interes.php">
 		<div class="form-group">
-    		<label for="nombre" class="col-sm-2 control-label">Nombre del pais</label>
+    		<label for="nombre" class="col-sm-2 control-label">Descripcion del interes</label>
     		<div class="col-sm-10">
-      			<input type="text" class="form-control" id="nombre" placeholder="Guatemala, Inglaterra..." name="nombre">
+      			<input type="text" class="form-control" id="nombre" placeholder="Futbol, Hacking, Dormir..." name="descripcion">
     		</div>
   		</div>
 		

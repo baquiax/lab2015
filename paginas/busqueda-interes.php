@@ -1,13 +1,13 @@
 <?php
-	$title = "Buscar pais";
+	$title = "Buscar interes";
 	$h2 = $title;
 	include("../includes/header.php");
 ?>
-	<form class="form-horizontal" name="datos" method="POST" action="listar-paises.php">
+	<form class="form-horizontal" name="datos" method="POST" action="listar-intereses.php">
 		<div class="form-group">
-    		<label for="nombre" class="col-sm-2 control-label">Nombre</label>
+    		<label for="descripcion" class="col-sm-2 control-label">Descripcion</label>
     		<div class="col-sm-10">
-      			<input type="text" class="form-control" id="nombre" placeholder="Guate, Salva" name="nombre">
+      			<input type="text" class="form-control" id="descripcion" placeholder="Fut, Hack" name="descripcion">
     		</div>
   		</div>
 		

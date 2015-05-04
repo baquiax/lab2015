@@ -1,23 +1,31 @@
 <?php
+	$title = "Borrar pais";
+	$h2 = $title;
+	include("../includes/header.php");
 	include("../bd/conexioni.php");
 ?>
-<html>
-<head>
-	<title>Pais</title>
-</head>
-<body>
-	<div align="center">
-		<br/><br/>
-		<font size="4"><b>Eliminar pais</b></font>
-		<?php
-			$sql = "delete from pais where pais = " . $_POST["nombre"] . "');";
-			$result - mysql_query($sql);
-		?>
-		<br/><br/>Proceso realizado con exito <br/><br/>
-		<a href="busqueda-pais.php">Continuar</a>
-	</div>
-</body>
-</html>
+	<p class="text-left">
+		<button class="btn btn-info" onclick="history.back()"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>&nbsp;&nbsp;Ir atras</button>
+	</p>
+	<?php
+		if (strlen($_POST["pais"]) > 0 && is_numeric($_POST["pais"])) {
+			$sql = "delete from pais where pais = " . $_POST["pais"];
+			$result = mysql_query($sql);
+	?>
+		<div class="alert alert-success" role="alert">
+    		<strong>Listo!</strong> Se ha <strong>eliminado</strong> el registro de forma correcta.
+    	</div>
+	<?php
+		} else {
+
+	?>
+		<div class="alert alert-danger" role="alert">
+      		<strong>Duh!</strong> Debes indicar un valor <strong>numerico</strong> valido.
+    	</div>
+	<?php			
+		}
+	?>
 <?php
 	include("../bd/conexionf.php");
+	include("../includes/footer.php");
 ?>

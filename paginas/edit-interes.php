@@ -1,5 +1,5 @@
 <?php
-	$title = "Editar pais";
+	$title = "Editar interes";
 	$h2 = $title;
 	include("../includes/header.php");
 	include("../bd/conexioni.php");
@@ -8,16 +8,16 @@
 		<button class="btn btn-info" onclick="history.back()"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>&nbsp;&nbsp;Ir atras</button>
 	</p>
 	<?php
-		if (strlen($_POST["pais"]) > 0 && is_numeric($_POST["pais"])) {
-			$sql = "select nombre from pais";
-			$sql = $sql . " where pais = " . $_POST["pais"];
+		if (strlen($_POST["interes"]) > 0 && is_numeric($_POST["interes"])) {
+			$sql = "select descripcion from interes";
+			$sql = $sql . " where interes = " . $_POST["interes"];
 			$result = mysql_query($sql);
 		
 			while ($row = mysql_fetch_array($result)) {
-				$nombre = $row["nombre"];
+				$descripcion = $row["descripcion"];
 			}
 
-			if(!isset($nombre)) {
+			if(!isset($descripcion)) {
 		?>
 				<div class="alert alert-danger" role="alert">
 					<strong>Duh!</strong> El registro que indica no existe!
@@ -28,18 +28,18 @@
 			}
 		?>
 
-		<form class="form-horizontal" name="datos" method="POST" action="update-pais.php">
+		<form class="form-horizontal" name="datos" method="POST" action="update-interes.php">
 			<div class="form-group">
-	    		<label for="pais" class="col-sm-2 control-label">(#)ID del pais</label>
+	    		<label for="interes" class="col-sm-2 control-label">(#)ID del interes</label>
 	    		<div class="col-sm-10">
-	      			<input type="number" class="form-control" id="pais" placeholder="1, 2, 3..." name="pais" readonly="true" value="<?php echo $_POST['pais'];?>">
+	      			<input type="number" class="form-control" id="interes" placeholder="1, 2, 3..." name="interes" readonly="true" value="<?php echo $_POST['interes'];?>">
 	    		</div>
 	  		</div>
 			
 			<div class="form-group">
-	    		<label for="nombre" class="col-sm-2 control-label">Nombres</label>
+	    		<label for="descripcion" class="col-sm-2 control-label">Descripcion</label>
 	    		<div class="col-sm-10">
-	      			<input type="text" class="form-control" id="nombre" placeholder="Guatemala, Inglaterra..." name="nombre" value="<?php echo $nombre;?>">
+	      			<input type="text" class="form-control" id="descripcion" placeholder="Guatemala, Inglaterra..." name="descripcion" value="<?php echo $descripcion;?>">
 	    		</div>
 	  		</div>
 
