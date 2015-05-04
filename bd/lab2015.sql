@@ -1,3 +1,5 @@
+create user 'baquiax'@'localhost' IDENTIFIED BY 'admin';
+
 create database if not exists lab2015;
 use lab2015;
 
@@ -33,5 +35,5 @@ create table usuario_interes (
 	foreign key(interes) references interes(interes)
 );
 
-
-
+GRANT ALL PRIVILEGES ON lab2015.* TO 'baquiax'@'localhost';
+FLUSH PRIVILEGES;
